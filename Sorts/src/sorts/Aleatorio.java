@@ -10,7 +10,10 @@ import java.io.*;
  * @version 09.02.2018
  */
 
-
+/**
+ * Aleatorio
+ * Clase qu crea un archivo "cadena.txt" con numero pseuoaleatorios de 0 a 2999
+ */
 public class Aleatorio implements Comparable{
     
     protected int[] cadena;

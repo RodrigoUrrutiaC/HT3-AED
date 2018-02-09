@@ -7,14 +7,17 @@ package sorts;
  * @version 09.02.2018
  */
 
-
+/**
+ * Sorts
+ * Clase en donde se definen los metodos Sorts
+ */
 public class Sorts {
     
     public Sorts(){ }
 
 //    ALGORITMO QUICK SORT OBTENIDO DE:
 //    https://es.stackoverflow.com/questions/7836/c%C3%B3mo-funciona-el-algoritmo-de-quicksort
-    
+
     public int[] quickSort(int[] cadena, int izquierda, int derecha) {
         int pivote = cadena[izquierda];
         int i = izquierda;
@@ -118,8 +121,8 @@ public class Sorts {
       }
     }
 
-    //
-    //
+    //ALGORITMO RADIX MERGE OBTENIDO DE:
+    //https://rosettacode.org/wiki/Sorting_algorithms/Radix_sort
     
     public static int[] radixSort(int[] old) {
     // Loop for every bit in the integers
@@ -155,5 +158,22 @@ public class Sorts {
  
     return old;
 }
+ 
+    //ALGORITMO RADIX MERGE OBTENIDO DE:
+    //https://www.javatpoint.com/insertion-sort-in-java
     
+        public static int[] insertionSort(int array[]) {  
+        int n = array.length;  
+        for (int j = 1; j < n; j++) {  
+            int key = array[j];  
+            int i = j-1;  
+            while ( (i > -1) && ( array [i] > key ) ) {  
+                array [i+1] = array [i];  
+                i--;  
+            }  
+            array[i+1] = key; 
+            
+        }  
+        return array;
+       }
 }
