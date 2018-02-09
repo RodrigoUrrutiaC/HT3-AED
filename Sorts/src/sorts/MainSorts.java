@@ -25,25 +25,21 @@ public class MainSorts {
         System.out.println("Gnome Sort:");
         System.out.println(Arrays.toString(cadenaGnome));
         
-        int n = a.cadena.length;
+        int[] cadenaMerge = s.mergeSort(a.cadena);
         System.out.println("Merge Sort:");
-        for (int i=0; i<n; ++i)
-            System.out.print(a.cadena[i] + " ");
-        System.out.println();
-
+        System.out.println(Arrays.toString(cadenaMerge));
 
         int[] cadenaQuick = s.quickSort(a.cadena,0,2999);
         System.out.println("Quick Sort:");
         System.out.println(Arrays.toString(cadenaQuick));
       
-        int[] cadenaRadix = s.radixSort(a.cadena);
-        System.out.println("Radix Sort");
-        System.out.println(Arrays.toString(cadenaRadix));
-        
-
         int[] cadenaInsertion = s.insertionSort(a.cadena);
         System.out.println("Insertion Sort:");
         System.out.println(Arrays.toString(cadenaInsertion));
+        
+        int[] cadenaRadix = s.radixSort(a.cadena);
+        System.out.println("Radix Sort");
+        System.out.println(Arrays.toString(cadenaRadix));      
 
     }
  }

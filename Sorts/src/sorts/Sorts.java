@@ -51,7 +51,7 @@ public class Sorts {
     //    ALGORITMO GNOME SORT OBTENIDO DE:
     //    http://professorjava.weebly.com/gnome-sort.html
     
-    public static int[] gnomeSort(int[] nums){ //takes unsorted array, returns sorted
+    public int[] gnomeSort(int[] nums){ //takes unsorted array, returns sorted
     int index=1; //start of search
     int temp;
     while(index<nums.length){ //until the array is fully sorted
@@ -71,87 +71,60 @@ public class Sorts {
     return(nums); //reaching the end of the array- completely sorted, returns nums
   }
         
-    //    ALGORITMO QUICK MERGE OBTENIDO DE:
-    //    https://www.geeksforgeeks.org/merge-sort/
+    //    ALGORITMO MERGE SORT OBTENIDO DE:
+    //    http://programminglife.io/merge-sort-in-java/
     
-     void merge(int arr[], int l, int m, int r)
-    {
-        // Find sizes of two subarrays to be merged
-        int n1 = m - l + 1;
-        int n2 = r - m;
- 
-        /* Create temp arrays */
-        int L[] = new int [n1];
-        int R[] = new int [n2];
- 
-        /*Copy data to temp arrays*/
-        for (int i=0; i<n1; ++i)
-            L[i] = arr[l + i];
-        for (int j=0; j<n2; ++j)
-            R[j] = arr[m + 1+ j];
- 
- 
-        /* Merge the temp arrays */
- 
-        // Initial indexes of first and second subarrays
-        int i = 0, j = 0;
- 
-        // Initial index of merged subarry array
-        int k = l;
-        while (i < n1 && j < n2)
-        {
-            if (L[i] <= R[j])
-            {
-                arr[k] = L[i];
-                i++;
-            }
-            else
-            {
-                arr[k] = R[j];
-                j++;
+    public int[] mergeSort(int[] inputArray) {
+        int n = inputArray.length;
+        if(n == 1) {
+          return inputArray;
+        }
+        int mid = n/2;
+        int[] leftArray = new int[mid];
+        int[] rightArray = new int[n - mid];
+        System.arraycopy(inputArray, 0, leftArray, 0, leftArray.length);
+        System.arraycopy(inputArray, leftArray.length, rightArray, 0, rightArray.length);
+        mergeSort(leftArray);
+        mergeSort(rightArray);
+        merge(leftArray, rightArray, inputArray);
+        
+        return inputArray;
+    }
+    
+    public void merge(int[] leftArray, int[] rightArray, int[] sortedArray) {
+        int leftArrayLength = leftArray.length;
+        int rightArrayLength = rightArray.length;
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        while(i < leftArrayLength && j < rightArrayLength) {
+            if(leftArray[i] < rightArray[j]) {
+               sortedArray[k] = leftArray[i];
+               i++;
+            } else {
+              sortedArray[k] = rightArray[j];
+              j++;
             }
             k++;
-        }
- 
-        /* Copy remaining elements of L[] if any */
-        while (i < n1)
-        {
-            arr[k] = L[i];
+          }
+          //copy the rest of the first half if there is anything left
+          while(i < leftArrayLength) {
+            sortedArray[k] = leftArray[i];
             i++;
             k++;
-        }
- 
-        /* Copy remaining elements of R[] if any */
-        while (j < n2)
-        {
-            arr[k] = R[j];
+          }
+          //copy the rest of the second half if there is anything left
+          while(j < rightArrayLength) {
+            sortedArray[k] = rightArray[j];
             j++;
             k++;
+          }
         }
-    }
- 
-    // Main function that sorts arr[l..r] using
-    // merge()
-    void sort(int arr[], int l, int r)
-    {
-        if (l < r)
-        {
-            // Find the middle point
-            int m = (l+r)/2;
- 
-            // Sort first and second halves
-            sort(arr, l, m);
-            sort(arr , m+1, r);
- 
-            // Merge the sorted halves
-            merge(arr, l, m, r);
-        }
-    }
     
-    //ALGORITMO RADIX MERGE OBTENIDO DE:
+    //ALGORITMO RADIX SORT OBTENIDO DE:
     //https://rosettacode.org/wiki/Sorting_algorithms/Radix_sort
     
-    public static int[] radixSort(int[] old) {
+    public int[] radixSort(int[] old) {
     // Loop for every bit in the integers
     for (int shift = Integer.SIZE - 1; shift > -1; shift--) {
         // The array to put the partially sorted array into
@@ -173,12 +146,10 @@ public class Sorts {
                 old[i - j] = old[i];
             }
         }
- 
         // Copy over the 1s from the old array
         for (int i = j; i < tmp.length; i++) {
             tmp[i] = old[i - j];
         }
- 
         // And now the tmp array gets switched for another round of sorting
         old = tmp;
     }
@@ -186,10 +157,10 @@ public class Sorts {
     return old;
 }
  
-    //ALGORITMO RADIX MERGE OBTENIDO DE:
+    //ALGORITMO INSERTION SORT OBTENIDO DE:
     //https://www.javatpoint.com/insertion-sort-in-java
     
-        public static int[] insertionSort(int array[]) {  
+        public int[] insertionSort(int array[]) {  
         int n = array.length;  
         for (int j = 1; j < n; j++) {  
             int key = array[j];  
@@ -198,8 +169,7 @@ public class Sorts {
                 array [i+1] = array [i];  
                 i--;  
             }  
-            array[i+1] = key; 
-            
+            array[i+1] = key;             
         }  
         return array;
        }
