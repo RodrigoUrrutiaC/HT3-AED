@@ -25,12 +25,12 @@ public class MainSorts {
         System.out.println("Gnome Sort:");
         System.out.println(Arrays.toString(cadenaGnome));
         
-        //Ya funciona pero imprime el orden un numero por fila
-        int[] inputArray =  {1, 3, 5, 2, 4, 6};
-        int[] sortedArray = s.divideAndConquer(a.cadena);
-        for (int i=0; i<sortedArray.length; i++) {
-        System.out.println(sortedArray[i]);
-        }
+        int n = a.cadena.length;
+        System.out.println("Merge Sort:");
+        for (int i=0; i<n; ++i)
+            System.out.print(a.cadena[i] + " ");
+        System.out.println();
+
 
         int[] cadenaQuick = s.quickSort(a.cadena,0,2999);
         System.out.println("Quick Sort:");
