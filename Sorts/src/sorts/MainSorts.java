@@ -21,23 +21,23 @@ public class MainSorts {
         Aleatorio a = new Aleatorio();
         Sorts s = new Sorts();
         
-        int[] cadenaGnome = s.gnomeSort(a.cadena);
+        Integer[] cadenaGnome = s.gnomeSort(a.cadena);
         System.out.println("Gnome Sort:");
         System.out.println(Arrays.toString(cadenaGnome));
         
-        int[] cadenaMerge = s.mergeSort(a.cadena);
+        Integer[] cadenaMerge = s.mergeSort(a.cadena);
         System.out.println("Merge Sort:");
         System.out.println(Arrays.toString(cadenaMerge));
 
-        int[] cadenaQuick = s.quickSort(a.cadena,0,2999);
+        Integer[] cadenaQuick = s.quickSort(a.cadena,0,2999);
         System.out.println("Quick Sort:");
         System.out.println(Arrays.toString(cadenaQuick));
       
-        int[] cadenaInsertion = s.insertionSort(a.cadena);
+        Integer[] cadenaInsertion = s.insertionSort(a.cadena);
         System.out.println("Insertion Sort:");
         System.out.println(Arrays.toString(cadenaInsertion));
         
-        int[] cadenaRadix = s.radixSort(a.cadena);
+        Integer[] cadenaRadix = s.radixSort(a.cadena);
         System.out.println("Radix Sort");
         System.out.println(Arrays.toString(cadenaRadix));      
 

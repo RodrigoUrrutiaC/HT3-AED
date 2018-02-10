@@ -16,13 +16,12 @@ import java.io.*;
  */
 public class Aleatorio implements Comparable{
     
-    protected int[] cadena;
-
+    protected Integer[] cadena;
     public Aleatorio()throws IOException{
         
         int x=3000;
         Random  rnd = new Random();
-        cadena = new int[x];
+        cadena = new Integer[x];
         for(int i = 0; i < cadena.length; i++){
             cadena[i] = rnd.nextInt(x*10);
         }

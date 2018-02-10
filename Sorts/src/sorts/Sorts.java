@@ -17,20 +17,26 @@ public class Sorts {
 
 //    ALGORITMO QUICK SORT OBTENIDO DE:
 //    https://es.stackoverflow.com/questions/7836/c%C3%B3mo-funciona-el-algoritmo-de-quicksort
-
-    public int[] quickSort(int[] cadena, int izquierda, int derecha) {
-        int pivote = cadena[izquierda];
-        int i = izquierda;
-        int j = derecha;
-        int auxIntercambio;
+/**
+ * metodo quicksort
+ * @param cadena cadena de  numeros random
+ * @param izquierda int izquierdo con el que compara
+ * @param derecha int derecho con el que compara
+ * @return cadena ordenada
+ */
+    public Integer[] quickSort(Integer[] cadena, Integer izquierda, Integer derecha) {
+        Integer pivote = cadena[izquierda];
+        Integer i = izquierda;
+        Integer j = derecha;
+        Integer auxIntercambio;
         while (i < j) {
-            while (cadena[i] <= pivote && i < j) {
+            while (cadena[i].compareTo(pivote) < 0 && i < j) {
                 i++;
             }
-            while (cadena[j] > pivote) {
+            while (cadena[j].compareTo(pivote) > 0) {
                 j--;
             }
-            if (i < j) {
+            if (i.compareTo(j) < 0) {
                 auxIntercambio = cadena[i];
                 cadena[i] = cadena[j];
                 cadena[j] = auxIntercambio;
@@ -38,10 +44,10 @@ public class Sorts {
         }
         cadena[izquierda] = cadena[j];
         cadena[j] = pivote;
-        if (izquierda < j - 1) {
+        if (izquierda.compareTo(j - 1) < 0) {
             quickSort(cadena, izquierda, j - 1);
         }
-        if (j + 1 < derecha) {
+        if ( derecha.compareTo(j+1) < 0) {
             quickSort(cadena, j + 1, derecha);
         }
         
@@ -50,12 +56,16 @@ public class Sorts {
 
     //    ALGORITMO GNOME SORT OBTENIDO DE:
     //    http://professorjava.weebly.com/gnome-sort.html
-    
-    public int[] gnomeSort(int[] nums){ //takes unsorted array, returns sorted
+    /**
+     * metodo gnomeSort
+     * @param nums cadena de numeros aleatorios 
+     * @return cadena de numeros aleatorios ordenados
+     */
+    public Integer[] gnomeSort(Integer[] nums){ //takes unsorted array, returns sorted
     int index=1; //start of search
-    int temp;
+    Integer temp;
     while(index<nums.length){ //until the array is fully sorted
-      if(nums[index]<nums[index-1]){ //compares nums[index] with nums[index-1]. if smaller, switch.
+      if(nums[index].compareTo(nums[index-1])<0){ //compares nums[index] with nums[index-1]. if smaller, switch.
         temp=nums[index];
         nums[index]=nums[index-1];
         nums[index-1]=temp;
@@ -73,15 +83,19 @@ public class Sorts {
         
     //    ALGORITMO MERGE SORT OBTENIDO DE:
     //    http://programminglife.io/merge-sort-in-java/
-    
-    public int[] mergeSort(int[] inputArray) {
-        int n = inputArray.length;
+    /**
+     * motodo mergeSort
+     * @param inputArray arreglo de numeros aleatorios
+     * @return array de numeros aleatorios ordenados
+     */
+    public Integer[] mergeSort(Integer[] inputArray) {
+        Integer n = inputArray.length;
         if(n == 1) {
           return inputArray;
         }
-        int mid = n/2;
-        int[] leftArray = new int[mid];
-        int[] rightArray = new int[n - mid];
+        Integer mid = n/2;
+        Integer[] leftArray = new Integer[mid];
+        Integer[] rightArray = new Integer[n - mid];
         System.arraycopy(inputArray, 0, leftArray, 0, leftArray.length);
         System.arraycopy(inputArray, leftArray.length, rightArray, 0, rightArray.length);
         mergeSort(leftArray);
@@ -90,10 +104,15 @@ public class Sorts {
         
         return inputArray;
     }
-    
-    public void merge(int[] leftArray, int[] rightArray, int[] sortedArray) {
-        int leftArrayLength = leftArray.length;
-        int rightArrayLength = rightArray.length;
+    /**
+     * metodo mergeSort
+     * @param leftArray numero izquierdo
+     * @param rightArray numero derecho
+     * @param sortedArray array de numeros aleatorios
+     */
+    public void merge(Integer[] leftArray, Integer[] rightArray, Integer[] sortedArray) {
+        Integer leftArrayLength = leftArray.length;
+        Integer rightArrayLength = rightArray.length;
         int i = 0;
         int j = 0;
         int k = 0;
@@ -123,12 +142,16 @@ public class Sorts {
     
     //ALGORITMO RADIX SORT OBTENIDO DE:
     //https://rosettacode.org/wiki/Sorting_algorithms/Radix_sort
-    
-    public int[] radixSort(int[] old) {
+    /**
+     * metodo radixsort
+     * @param old cadena de numeros aleatorios
+     * @return cadena de numeros aleatorios ordenados
+     */
+    public Integer[] radixSort(Integer[] old) {
     // Loop for every bit in the integers
     for (int shift = Integer.SIZE - 1; shift > -1; shift--) {
         // The array to put the partially sorted array into
-        int[] tmp = new int[old.length];
+        Integer[] tmp = new Integer[old.length];
         // The number of 0s
         int j = 0;
  
@@ -159,9 +182,13 @@ public class Sorts {
  
     //ALGORITMO INSERTION SORT OBTENIDO DE:
     //https://www.javatpoint.com/insertion-sort-in-java
-    
-        public int[] insertionSort(int array[]) {  
-        int n = array.length;  
+    /**
+     * metodo insertionsort
+     * @param array array de numeros aleatorios
+     * @return array de numeros aleatorios ordenados
+     */
+        public Integer[] insertionSort(Integer array[]) {  
+        Integer n = array.length;  
         for (int j = 1; j < n; j++) {  
             int key = array[j];  
             int i = j-1;  
